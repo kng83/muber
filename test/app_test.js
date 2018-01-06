@@ -13,12 +13,12 @@ const app = require('../app.js');
 
 describe('The express app',()=>{
 
-    it('handles a GET request to /api',(done)=>{
-        /*praktyczne uzywanie supertestu bierzemy aplikacje robit request i patrzymy na odpowiedz*/
+    it('handles a GET request to /api',(done) =>{
+        /*praktyczne uzywanie supertestu bierzemy aplikacje robi request i patrzymy na odpowiedz*/
         request(app)
             .get('/api')
             .end((err,response)=>{
-                //console.log(response);
+              //  console.log(response);
                 assert(response.body.hi ==='there');
                 done();
             });
