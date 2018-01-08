@@ -1,8 +1,11 @@
 const express = require('express');
+const mongoose =require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 
-
+/*Polaczenie z baza danych*/
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/muber');
 
 /*Sekcja 14 wyklad 101
 * Express bedzie składał się z Routera, Kontrolera (ktory laczy sie z mongo) i Modelu laczacego sie z kontrolerm

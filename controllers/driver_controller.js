@@ -1,6 +1,8 @@
 //Zazwyczaj sie robi 1 kontroler dla jednego zadania w naszej aplikacji
 //Tu eksportujemy obiekt
 //stary greeting wygladalby tak greeting:function(req,res){}
+//Trzeba gdzies model zaimportowac
+const Driver = require('../models/driver');
 
 module.exports ={
     greeting(req,res){
@@ -23,7 +25,16 @@ module.exports ={
     * npm install --save body-parser */
 
     create(req,res){
-        console.log(req.body);
-        res.send({hi: 'there'});
+       // console.log(req,res);
+        /*
+        * tutaj pobieramy wlasciwosci obiektu by stworzyc nowego
+        * kierowce do wyslania. Tworzymy nowego kierowce i wysylamy
+        * metoda post do tego co wyslal zgloszenie kierowcy
+        * Tu dostalismy requesta tworzymy kierowce i wysylamy odpowiedz do tworzacego
+        */
+        const driverProps = req.body;
+        Driver.create(driverProps)
+            .then(driver => res.send(driver));
+
     }
 };

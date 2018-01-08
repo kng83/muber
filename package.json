@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "target":"es5",
   "scripts": {
     "test": "nodemon  --exec \"mocha --recursive -R min\""
   },
