@@ -11,7 +11,6 @@ const DriverSchema = new Schema({
         type:Boolean,
         default:false
     }
-
 });
 
 const Driver = mongoose.model('driver',DriverSchema);

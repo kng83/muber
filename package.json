@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "target":"es5",
   "scripts": {
-    "test": "nodemon  --exec \"mocha --recursive -R min\""
+    "test": " set NODE_ENV=test && nodemon  --exec \"mocha --recursive -R min\""
   },
   "author": "",
   "license": "ISC",
