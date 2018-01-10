@@ -31,4 +31,25 @@ describe('Drivers controller',()=>{
         });
 
     });
+    it('Put to /api/drivers/:id edits an existing driver',done =>{
+        //musimy utworzyc kierowce
+        //updetowac kierowce
+        //ponownie go zaladowac z bazy i sprawdzic assert
+        //zapisujemy kierowce i dostajemy sie do jego id aby utworzyc url
+
+
+        const driver = new Driver({email: 't@t.com', driving:false});
+        driver.save().then(()=>{
+            request(app)
+                .put(`/api/drivers/${driver._id}`)
+                .send({driving:true})
+                .end(()=>{
+                    Driver.findOne({email:'t@t.com'})
+                        .then(driver =>{
+                            assert(driver.driving === true);
+                            done();
+                        })
+                });
+        })
+    })
 });

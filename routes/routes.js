@@ -20,8 +20,14 @@ module.exports = (app) =>{
     * app.get('/api', (req, res) => {
     * res.send({hi:'there'})
     * });
-    * */
+    *
+    * get to pobieranie
+    * post to tworzenie create
+    * put to edycja edit
+    * w put dajemy takzwany wildcard statement tak zeby rozszyfrowac kierowca z jakim id wyslal edycje
+    * express wrzuci nam to id do obiektu req.params*/
     app.get('/api', DriversController.greeting);
     app.post('/api/drivers',DriversController.create);
+    app.put('/api/drivers/:id',DriversController.edit);
 };
 
