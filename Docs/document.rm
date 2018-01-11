@@ -2,3 +2,6 @@
 //W pliku package.json ustawiamy ja na:
  "test": "NODE_ENV=test nodemon  --exec \"mocha --recursive -R min\""
 //Dzieki temu bedziemy mogli dropowac nasze kolekcje w tescie a w srodowisku produkcyjnym nie bedziemy tego robic
+//Mongo ma wbudowany algorytm liczenia odleglosci na swieci [longitude,latitude] czyli najpierw dl potem szer.
+//geograficzna. Ma 2 systemy liczenia tej odlegosci miedzy dwoma punktami (2d dla bliskich odlegosci robi wtedy plaska
+//mape i liczy odlegosc ) lub 2d Sphere (dla punktow oddalonych od siebie w tedy liczy po obrzezu sfery).

@@ -59,5 +59,17 @@ module.exports ={
             .then(()=>Driver.findById({_id:driverId}))
             .then(driver => res.send(driver))
             .catch(next);
+    },
+
+    /*Usuwanie kierowcy
+    * jezli findByIdAndRemove bedzie sukcesem to then dostaniemy obiekt usunietego kierowcy
+    * dodamy fajny status 204 - on znaczy ze rekord zostal skutecznie usuniety
+    * */
+    delete(req, res, next){
+        const driverId = req.params.id;
+
+        Driver.findByIdAndRemove({_id: driverId})
+            .then(driver => res.status(204).send(driver))
+            .catch(next);
     }
 };
