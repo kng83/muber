@@ -66,5 +66,29 @@ describe('Drivers controller',()=>{
                        }).catch(err =>console.log(err.message));
                     });
                 });
-        })
+        });
+
+    /*Mamy tu problem bo jak robimy drop kolekcji to kasuje sie nasz obiekt geoNear
+    * w bazie. Jest on tworzony tylko raz jak robimy Schema.*/
+    it('Get to /api/drivers finds drivers in location',(done)=>{
+        const seattleDrvier = new Driver({
+            email: 'settle@test.com',
+            geometry: {type: 'Point', coordinates:[-122.4759902,47.6147628]}
+        });
+        const miamiDriver = new Driver({
+            email: 'miami@test.com',
+            geometry: {type: 'Point', coordinates:[-80.253, 25.791]}
+        });
+
+        Promise.all([seattleDrvier.save(),miamiDriver.save()])
+            .then(()=>{
+                request(app)
+                    .get('/api/drivers/?lng=-80&lat=25')
+                    .end((err,response)=>{
+                        console.log(response);
+                        done();
+                    })
+            })
+
+    })
 });

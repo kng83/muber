@@ -5,3 +5,5 @@
 //Mongo ma wbudowany algorytm liczenia odleglosci na swieci [longitude,latitude] czyli najpierw dl potem szer.
 //geograficzna. Ma 2 systemy liczenia tej odlegosci miedzy dwoma punktami (2d dla bliskich odlegosci robi wtedy plaska
 //mape i liczy odlegosc ) lub 2d Sphere (dla punktow oddalonych od siebie w tedy liczy po obrzezu sfery).
+//mongo zapisuje dane geograficzne uzywajac formatu json. A dokladnie geojson. Ten format przedstawiony jest na
+//stronie geojson.org
